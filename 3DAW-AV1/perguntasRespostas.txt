@@ -1,0 +1,4 @@
+1;Quantos anos vc tem?
+1;10;20;47
+2;-1
+2;Ola como vc ta? 

@@ -4,31 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <title>Jogo Cooperativo</title>
 </head>
 <body>
-<h1 >Listar Disciplinas</h1>
-    <a href="criarPergunta.php">+ Criar Pergunta</a>
+<h1 >Listar Perguntas</h1>
+    <a class="criar-pergunta" href="criarPergunta.php">+ Criar Pergunta</a>
     <?php
-    $arqPerg = fopen("multiplaEscolha.txt", "r");
-    $pergunta= fgets($arqPerg);
-    ?>
+    $arqPerg = fopen("perguntasRespostas.txt", "r");
+    $pergunta= explode(";", fgets($arqPerg));
 
+    ?>
     <form action="">
         <br>
-        <?php while(!feof($arqPerg)){
-            $resposta = explode(";", fgets($arqPerg));?>
-            <label for=""><?php echo $pergunta?></label>
+        <?php $resp[]= 0; $x =0; while(!feof($arqPerg)){
+            if($pergunta[1] == -1){
+                $pergunta= explode(";", fgets($arqPerg))?>
+                <label for=""><?php echo $x+1 . ") " . $pergunta[1]?></label>
+                <br><br>
+                <textarea name="discursiva" id="discursiva" cols="20" rows="3"></textarea>
+                <br><br>
+                <a class="botao-alterar" href="alterarPergunta.php?id=<?php echo $pergunta[0]?>">Alterar</a>
+                <a class="botao-remover" href="removerPergunta.php?id=<?php echo $pergunta[0]?>">Remover</a>
+                <br><br>
+           <?php }else{ 
+                $resposta = explode(";", fgets($arqPerg));?>
+                <label for=""><?php echo $x+1 . ") " . $pergunta[1]?></label>
+                <br><br>
+                <div class="multipla-escolha">
+                    <input type="radio" name="<?php echo $resp[$x]?>" value="resp1"><?php echo $resposta[1]?>
+                    <br>
+                    <input type="radio" name="<?php echo $resp[$x]?>" value="resp2"><?php echo $resposta[2]?>
+                    <br>
+                    <input type="radio" name="<?php echo $resp[$x]?>" value="resp3"><?php echo $resposta[3]?>
+                    <br><br>
+                </div>
+                    <a class="botao-alterar" href="alterarPergunta.php?id=<?php echo $resposta[0]?>">Alterar</a>
+                    <a class="botao-remover" href="removerPergunta.php?id=<?php echo $resposta[0]?>">Remover</a>
+                    <br><br>
+                
+        <?php } ; $x++; $resp[$x]=$x; $pergunta = explode(";", fgets($arqPerg));
+    } fclose($arqPerg); ?>
             <br>
-            <input type="radio" name="resposta" value="resp1"><?php echo $resposta[0]?>
-            <br>
-            <input type="radio" name="resposta" value="resp2"><?php echo $resposta[1]?>
-            <br>
-            <input type="radio" name="resposta" value="resp3"><?php echo $resposta[2]?>
-            <br><br>
-        <?php $pergunta= fgets($arqPerg);} fclose($arqPerg);?>
-        
+            <input class="botao-enviar" type="submit" value="Enviar">
         
     </form>
 

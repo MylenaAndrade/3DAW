@@ -2,42 +2,41 @@
     $pergunta = "";
     $resposta1 = "";
     $resposta2 = "";
-    $resposta2 = "";
-    $discursiva = " ";
+    $resposta3 = "";
+    $multipla = "";
+    $id = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $pergunta = $_POST["pergunta"];
         $resposta1 = $_POST["resposta1"];
         $resposta2 = $_POST["resposta2"];
         $resposta3 = $_POST["resposta3"];
-        $discursiva = $_POST["sim"];
+        $id = $_POST["id"];
 
-        if($discursiva == "sim"){
-            if(!file_exists("discursiva.txt")){
-                $arqDisc = fopen("discursiva.txt", "w") or die("erro ao criar arquivo");
-                $linha = $pergunta;
-            }else{
-                $arqDisc = fopen("discursiva.txt", "a");
-                $linha = "\n".$pergunta;
-            }
+        if(!file_exists("perguntasRespostas.txt")){
+                $arqPerg = fopen("perguntasRespostas.txt", "w") or die("erro ao criar arquivo");
+                if($resposta1 == ""){
+                    $linha = $id. ";" . "-1". "\n" . $id . ";" . $pergunta;
+                }else{
+                    $linha = $id. ";". $pergunta . "\n" . $id .";".$resposta1 . ";" . $resposta2 . ";" . $resposta3;
+                }
         }else{
-            if(!file_exists("multiplaEscolha.txt")){
-                $arqDisc = fopen("multiplaEscolha.txt", "w") or die("erro ao criar arquivo");
-                $linha = $pergunta . "\n" . $resposta1 . ";" . $resposta2 . ";" . $resposta3;
+            $arqPerg = fopen("perguntasRespostas.txt", "a");
+            if($resposta1 == ""){
+                $linha = "\n". $id. ";" . "-1". "\n" . $id. ";" . $pergunta;
             }else{
-                $arqDisc = fopen("multiplaEscolha.txt", "a");
-                $linha = "\n".$pergunta . "\n" . $resposta1 . ";" . $resposta2 . ";" . $resposta3;
+                $linha = "\n". $id. ";" . $pergunta . "\n" . $id .";".$resposta1 . ";" . $resposta2 . ";" . $resposta3;
             }
         }
-        
-        
-        fwrite($arqDisc, $linha);
-        fclose($arqDisc);
+            fwrite($arqPerg, $linha);
+            fclose($arqPerg);
 
-        header("location: /Trabalhos/3DAW-AV1/index.php");
+        header("location: /Trabalhos/3DAW/3DAW-AV1/index.php");
         exit;
-
+        
     }
+
+        
 ?>
 
 <!DOCTYPE html>
@@ -46,10 +45,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Criar Perguntas</title>
 </head>
 <body>
     <form action="criarPergunta.php" method="POST">
+        <h1>Crie sua pergunta</h1>
+        <label for="">Digite o id: </label>
+        <br>
+        <input type="text" name="id">
+        <br><br>
         <label for="">Digite sua pergunta</label>
         <br>
         <input type="text" name="pergunta">
@@ -60,7 +65,6 @@
         <br>
         <input type="radio" name="resposta" value="nao">Não
         <br><br>
-        <a href="criarPergunta.php" type="submit">Salvar</a>
         
         <label for="">Digite a primeira resposta: </label>
         <br>
@@ -74,7 +78,7 @@
         <br>
         <input type="text" name="resposta3">
         <br><br>
-        <input type="submit" value="Criar Perguntas">
+        <input class="botao-perguntas" type="submit" value="Criar Perguntas">
     </form>
 </body>
 </html>

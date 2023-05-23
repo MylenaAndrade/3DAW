@@ -1,6 +1,0 @@
-Quantos anos vc tem?
-10;20;47
-Ola como vc ta? 
-to bem;to otimo ;to mal
-De onde vc é?
-RJ;SP;ES
