@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 >Listar Perguntas</h1>
-    <a class="criar-pergunta" href="criarPergunta.php">+ Criar Pergunta</a>
+    <a class="criar-pergunta" href="criarPergunta.html">+ Criar Pergunta</a>
     <?php
     $arqPerg = fopen("perguntasRespostas.txt", "r");
     $pergunta= explode(";", fgets($arqPerg));

@@ -1,4 +1,6 @@
-1;Quantos anos vc tem?
-1;10;20;47
-2;-1
-2;Ola como vc ta? 
+0;tudo bem?
+0;sim;nao;ta ok
+1;-1
+1;oi?
+2;De onde vc é?
+2;RJ;SP;ES
