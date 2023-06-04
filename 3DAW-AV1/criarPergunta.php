@@ -46,6 +46,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="script.js">
     <title>Criar Perguntas</title>
 </head>
 <body>
@@ -53,11 +54,11 @@
         <h1>Crie sua pergunta</h1>
         <label for="">Digite o id: </label>
         <br>
-        <input type="text" name="id">
+        <input type="text" name="id" id="id">
         <br><br>
         <label for="">Digite sua pergunta</label>
         <br>
-        <input type="text" name="pergunta">
+        <input type="text" name="pergunta" id="pergunta">
         <br><br>
         <label for="">Gostaria que ela fosse discursiva? </label>
         <br>
@@ -68,17 +69,17 @@
         
         <label for="">Digite a primeira resposta: </label>
         <br>
-        <input type="text" name="resposta1">
+        <input type="text" name="resposta1" id="resposta1">
         <br><br>
         <label for="">Digite a segunda resposta: </label>
         <br>
-        <input type="text" name="resposta2">
+        <input type="text" name="resposta2" id="resposta2"> 
         <br><br>
         <label for="">Digite a terceira resposta: </label>
         <br>
-        <input type="text" name="resposta3">
+        <input type="text" name="resposta3" id="resposta3">
         <br><br>
-        <input class="botao-perguntas" type="submit" value="Criar Perguntas">
+        <input class="botao-perguntas" type="submit" onclick="criarPergunta();">
     </form>
 </body>
 </html>
