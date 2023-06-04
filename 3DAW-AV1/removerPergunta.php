@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     
     unlink("perguntasRespostas.txt");
     rename($arquivoNomeVelho, $arquivoNomeNovo);
-    header("location: /Trabalhos/3DAW/3DAW-AV1/index.php");
+    header("location: /3DAW/3DAW/3DAW-AV1/index.php");
     exit;
 }
 ?>

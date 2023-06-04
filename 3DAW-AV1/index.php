@@ -24,7 +24,7 @@
                 <br><br>
                 <textarea name="discursiva" id="discursiva" cols="20" rows="3"></textarea>
                 <br><br>
-                <a class="botao-alterar" href="alterarPergunta.php?id=<?php echo $pergunta[0]?>">Alterar</a>
+                <a class="botao-alterar" href="alterarPergunta.html?id=<?php echo $pergunta[0]?>">Alterar</a>
                 <a class="botao-remover" href="removerPergunta.php?id=<?php echo $pergunta[0]?>">Remover</a>
                 <br><br>
            <?php }else{ 
@@ -39,7 +39,7 @@
                     <input type="radio" name="<?php echo $resp[$x]?>" value="resp3"><?php echo $resposta[3]?>
                     <br><br>
                 </div>
-                    <a class="botao-alterar" href="alterarPergunta.php?id=<?php echo $resposta[0]?>">Alterar</a>
+                    <a class="botao-alterar" href="alterarPergunta.html?id=<?php echo $resposta[0]?>">Alterar</a>
                     <a class="botao-remover" href="removerPergunta.php?id=<?php echo $resposta[0]?>">Remover</a>
                     <br><br>
                 
