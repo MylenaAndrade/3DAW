@@ -61,14 +61,25 @@ body{
 }
 
 .botao-perguntas{
-    background-color: #d3c338;
+    background-color: #300feb;
     color: #f0f8ff;
     padding: 10px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     text-decoration: none;
-    margin-left: 320px;
+    margin-left: 20px;
+}
+
+.botao-voltar{
+    background-color: #860ad8;
+    color: #f0f8ff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    text-decoration: none;
+    margin-left: 280px;
 }
 
 .id{
