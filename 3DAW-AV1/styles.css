@@ -70,3 +70,10 @@ body{
     text-decoration: none;
     margin-left: 320px;
 }
+
+.id{
+    display: flex;
+    justify-content:center;
+    gap: 10px;
+    color: #3c30e0;
+}
