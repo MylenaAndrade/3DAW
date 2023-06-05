@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script>
+
         function alterarPergunta(){
+            var urlAtual = window.location.href;
+            var urlClass = new URL(urlAtual);
+            var id = urlClass.searchParams.get("id");
+            console.log(id)
+
             let pergunta = document.getElementById("pergunta").value;
             let resposta1 = document.getElementById("resposta1").value;
             let resposta2 = document.getElementById("resposta2").value;
             let resposta3 = document.getElementById("resposta3").value;
-            let id = document.getElementById("id").value;
+            
 
             let xmlhttp = new XMLHttpRequest();
             console.log("1");
@@ -44,7 +50,7 @@
     <script>
         
     </script>
-    <input type="text" name="id" readonly value= "2" id="id">
+    <input type="text" name="id" readonly value= "" id="id">
     <br><br>
     <label for="">Digite sua pergunta</label>
     <br>

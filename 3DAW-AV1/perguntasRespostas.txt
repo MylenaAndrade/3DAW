@@ -1,2 +1,4 @@
 2;-1
 2;tudo bem?
+2;De onde vc é?
+2;RJ;SP;ES
