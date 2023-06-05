@@ -10,14 +10,13 @@
 <body>
 <h1 >Listar Perguntas</h1>
     <a class="criar-pergunta" href="criarPergunta.html">+ Criar Pergunta</a>
-    <?php
-    $arqPerg = fopen("perguntasRespostas.txt", "r");
-    $pergunta= explode(";", fgets($arqPerg));
-
-    ?>
     <form action="">
         <br>
-        <?php $resp[]= 0; $x =0; while(!feof($arqPerg)){
+        <?php if(file_exists("perguntasRespostas.txt")){
+            $arqPerg = fopen("perguntasRespostas.txt", "r");
+            $pergunta= explode(";", fgets($arqPerg));
+            $resp[]= 0; $x =0; 
+            while(!feof($arqPerg)){
             if($pergunta[1] == -1){
                 $pergunta= explode(";", fgets($arqPerg))?>
                 <label for=""><?php echo $x+1 . ") " . $pergunta[1]?></label>
@@ -44,7 +43,8 @@
                     <br><br>
                 
         <?php } ; $x++; $resp[$x]=$x; $pergunta = explode(";", fgets($arqPerg));
-    } fclose($arqPerg); ?>
+    } fclose($arqPerg); }else{echo "NÃO EXISTE PERGUNTAS!";}
+    ?>
             <br>
             <input class="botao-enviar" type="submit" value="Enviar">
         
