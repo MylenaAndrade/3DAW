@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script>
-
         function alterarPergunta(){
-            var urlAtual = window.location.href;
-            var urlClass = new URL(urlAtual);
-            var id = urlClass.searchParams.get("id");
-            console.log(id)
+            let urlAtual = window.location.href;
+            let urlClass = new URL(urlAtual);
+            let id = urlClass.searchParams.get("id");
+            console.log(id);
 
             let pergunta = document.getElementById("pergunta").value;
             let resposta1 = document.getElementById("resposta1").value;
@@ -45,13 +44,22 @@
 <body class="inserir-aluno">
 <form method="POST">
     <h1 class="inserir-aluno-titulo"><h1>Alterar Aluno</h1></h1>
-    <label for="">ID: </label>
-    <br>
+    <label class="id" for="" id="id">ID: </label>
     <script>
+        let urlAtual = window.location.href;
+        let urlClass = new URL(urlAtual);
+        let id = urlClass.searchParams.get("id");
+        console.log(id);
+
+        const identificao = document.createElement("p");
+
+        identificao.textContent = id; 
+
+        let p = document.getElementById("id");
+        p.insertAdjacentElement("beforeend", identificao);
         
     </script>
-    <input type="text" name="id" readonly value= "" id="id">
-    <br><br>
+    <br>
     <label for="">Digite sua pergunta</label>
     <br>
     <input type="text" name="pergunta" id="pergunta">
