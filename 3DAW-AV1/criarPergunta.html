@@ -12,9 +12,8 @@
             let resposta1 = document.getElementById("resposta1").value;
             let resposta2 = document.getElementById("resposta2").value;
             let resposta3 = document.getElementById("resposta3").value;
-            let id = document.getElementById("id").value;
 
-            let objForm = {"id": id, "pergunta": pergunta,"resposta1": resposta1,"resposta2": resposta2, "resposta3": resposta3};
+            let objForm = {"pergunta": pergunta,"resposta1": resposta1,"resposta2": resposta2, "resposta3": resposta3};
             let objJson = JSON.stringify(objForm);
             
             console.log("JSON: " + objJson);
@@ -33,7 +32,7 @@
                 console.log("Requisicao falhou: " + this.status);
             }
                 console.log("4");
-                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV1/criarPergunta.php?id=" + id + "&pergunta=" + pergunta +  "&resposta1=" + resposta1 + "&resposta2=" + resposta2 + "&resposta3=" + resposta3);
+                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV1/criarPergunta.php?pergunta=" + pergunta +  "&resposta1=" + resposta1 + "&resposta2=" + resposta2 + "&resposta3=" + resposta3);
                 xmlhttp.send();
                 console.log("enviei form");
                 console.log("5");
@@ -47,10 +46,6 @@
 <body>
     <form action="" method="POST" id="formPergunta">
         <h1>Crie sua pergunta</h1>
-        <label for="">Digite o id: </label>
-        <br>
-        <input type="text" name="id" id="id">
-        <br><br>
         <label for="">Digite sua pergunta</label>
         <br>
         <input type="text" name="pergunta" id="pergunta">
