@@ -1,4 +1,5 @@
 <?php 
+include("conexao.php");
     if($_SERVER["REQUEST_METHOD"] == "GET"){
         $pergunta = $_GET["pergunta"];
         $resposta1 = $_GET["resposta1"];
