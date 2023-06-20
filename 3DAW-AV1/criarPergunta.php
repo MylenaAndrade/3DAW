@@ -6,22 +6,23 @@ include("conexao.php");
         $resposta2 = $_GET["resposta2"];
         $resposta3 = $_GET["resposta3"];
         $resposta4 = $_GET["resposta4"];
-        $discursiva = '';
+        $discursiva = "";
 
-        if($resposta1 == ''){
-            $discursiva = 'S';
+        if($resposta1 == ""){
+            $discursiva = "S";
         }else{
-            $discursiva = 'N';
+            $discursiva = "N";
         }
 
-        $sql ="INSERT INTO perguntas values(default,'$pergunta','$discursiva')";
-        
+        $sql ="INSERT INTO perguntas values(default,'$pergunta','$discursiva','$resposta4','$resposta1', '$resposta2', '$resposta3')";
+
         if(mysqli_query($mysqli, $sql)){
             echo "Pergunta cadastrada com sucesso";
         }else{
             echo "Erro!" . mysqli_connect_error($mysqli);
         }
 
+        
         mysqli_close($mysqli);
     }
 
