@@ -16,7 +16,7 @@
             let resposta1 = document.getElementById("resposta1").value;
             let resposta2 = document.getElementById("resposta2").value;
             let resposta3 = document.getElementById("resposta3").value;
-            
+            let resposta4 = document.getElementById("resposta4").value;
 
             let xmlhttp = new XMLHttpRequest();
             console.log("1");
@@ -31,7 +31,7 @@
                 console.log("Requisicao falhou: " + this.status);
             }
                 console.log("4");
-                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV1/alterarPergunta.php?id=" + id + "&pergunta=" + pergunta +  "&resposta1=" + resposta1 + "&resposta2=" + resposta2 + "&resposta3=" + resposta3);
+                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV1/alterarPergunta.php?id=" + id + "&pergunta=" + pergunta +  "&resposta1=" + resposta1 + "&resposta2=" + resposta2 + "&resposta3=" + resposta3 + "&resposta4=" + resposta4);
                 xmlhttp.send();
                 console.log("enviei form");
                 console.log("5");
@@ -41,7 +41,7 @@
 </head>
 <body class="inserir-aluno">
 <form method="POST">
-    <h1 class="inserir-aluno-titulo"><h1>Alterar Aluno</h1></h1>
+    <h1 class="inserir-aluno-titulo"><h1>Alterar Pergunta</h1></h1>
     <label class="id" for="" id="id">ID: </label>
     <script>
         let urlAtual = window.location.href;
@@ -59,29 +59,28 @@
     </script>
     <br>
     <label for="">Digite sua pergunta</label>
-    <br>
-    <input type="text" name="pergunta" id="pergunta">
-    <br><br>
-    <label for="">Gostaria que ela fosse discursiva? </label>
-    <br>
-    <input type="radio" name="resposta" value="sim">Sim
-    <br>
-    <input type="radio" name="resposta" value="nao">Não
-    <br><br>
-    <h3>Caso não: </h3>
-    <br>  
-    <label for="">Digite a primeira resposta: </label>
-    <br>
-    <input type="text" name="resposta1" id="resposta1">
-    <br><br>
-    <label for="">Digite a segunda resposta: </label>
-    <br>
-    <input type="text" name="resposta2" id="resposta2">
-    <br><br>
-    <label for="">Digite a terceira resposta: </label>
-    <br>
-    <input type="text" name="resposta3" id="resposta3">
-    <br><br>
+        <br>
+        <input type="text" name="pergunta" id="pergunta">
+        <br><br>
+        <h3>Gostaria que ela fosse discursiva?</h3>
+        <p>Se sim deixe as opções abaixo em branco!</p>
+        <br><br>
+        <label for="">Digite a primeira opcao: </label>
+        <br>
+        <input type="text" name="resposta1" id="resposta1">
+        <br><br>
+        <label for="">Digite a segunda opcao: </label>
+        <br>
+        <input type="text" name="resposta2" id="resposta2"> 
+        <br><br>
+        <label for="">Digite a terceira opcao: </label>
+        <br>
+        <input type="text" name="resposta3" id="resposta3">
+        <br><br>
+        <label for="">Digite a resposta da pergunta: </label>
+        <br>
+        <input type="text" name="resposta4" id="resposta4">
+        <br><br>
     <a class="botao-voltar" href="index.php">Voltar</a>
     <input class="botao-perguntas" type="submit" onclick="alterarPergunta();">
     
