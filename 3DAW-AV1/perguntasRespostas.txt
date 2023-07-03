@@ -1,6 +1,0 @@
-0;-1
-0;oi?
-1;tudo bem?
-1;sim;nao;ta ok
-2;De onde vc é?
-2;RJ;SP;ES
