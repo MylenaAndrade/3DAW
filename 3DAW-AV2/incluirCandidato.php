@@ -8,7 +8,7 @@ include("conexao.php");
         $cargo = $_GET["cargo"];
         $sala = $_GET["sala"];
 
-        $sql ="INSERT INTO candidatos values('$cpf','$nome','$identidade','$email', '$cargo', '$sala')";
+        $sql ="INSERT INTO candidatos values(default,'$nome','$cpf','$identidade','$email', '$cargo', '$sala')";
 
         if(mysqli_query($mysqli, $sql)){
             echo "Pergunta cadastrada com sucesso";

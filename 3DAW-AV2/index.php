@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 >Concurso KeyFalls</h1>
-	<button>Inscrever Candidato</button>
+	<a href="incluirCandidato.html">Inscrever Candidato</a>
     <table>
     	<tr>
           <td>Nome</td>
