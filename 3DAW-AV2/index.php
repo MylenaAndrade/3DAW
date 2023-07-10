@@ -50,7 +50,7 @@ $result = mysqli_query($mysqli,$query);
         <th><?php echo "$sala"?></th>
         <th>
             <a href="alterarSala.php">Alterar Sala</a>
-            <a href="removerCandidato.php">Remover</a>
+            <a href="removerCandidato.php?id=<?php echo $id?>">Remover</a>
         </th>
         </tr>
         <?php
