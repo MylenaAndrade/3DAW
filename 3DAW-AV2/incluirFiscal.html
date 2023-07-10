@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script>
-        function incluirCandidato(){
+        function incluirFiscal(){
             
             let nome = document.getElementById("nome").value;
             let cpf = document.getElementById("cpf").value;
-            let identidade = document.getElementById("identidade").value;
-            let email = document.getElementById("email").value;
-            let cargo = document.getElementById("cargo").value;
             let sala = document.getElementById("sala").value;
-            let objForm = {"nome": nome,"cpf": cpf,"identidade": identidade, "email": email, "cargo": cargo, "sala": sala};
+            let objForm = {"nome": nome,"cpf": cpf, "sala": sala};
             let objJson = JSON.stringify(objForm);
             
             console.log("JSON: " + objJson);
@@ -33,7 +30,7 @@
                 console.log("Requisicao falhou: " + this.status);
             }
                 console.log("4");
-                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV1/criarPergunta.php?nome=" + nome +  "&cpf=" + cpf + "&identidade=" + identidade + "&email=" + email + "&cargo=" + cargo + "&sala" + sala);
+                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV1/criarPergunta.php?nome=" + nome +  "&cpf=" + cpf + "&sala" + sala);
                 xmlhttp.send();
                 console.log("enviei form");
                 console.log("5");
@@ -46,7 +43,7 @@
 </head>
 <body>
     <form action="" method="POST" id="formPergunta">
-        <h1>Incluir Candidato</h1>
+        <h1>Incluir Fiscal</h1>
         <label for="nome">Informe seu Nome:</label>
         <br>
         <input type="text" name="nome" id="nome">
@@ -55,24 +52,12 @@
         <br>
         <input type="text" name="cpf" id="cpf">
         <br><br>
-        <label for="identidade">Identidade: </label>
-        <br>
-        <input type="text" name="identidade" id="identidade"> 
-        <br><br>
-        <label for="email">Email: </label>
-        <br>
-        <input type="text" name="email" id="email">
-        <br><br>
-        <label for="cargo">Cargo Pretendido: </label>
-        <br>
-        <input type="text" name="cargo" id="cargo">
-        <br><br>
         <label for="sala">Local de Prova: </label>
         <br>
         <input type="text" name="sala" id="sala">
         <br><br>
         <a class="botao-voltar" href="index.php">Voltar</a>
-        <input class="botao-perguntas" type="submit" onclick="incluirCandidato();">
+        <input class="botao-perguntas" type="submit" onclick="incluirFiscal();">
     </form>
 
     <p id="msg"></p>

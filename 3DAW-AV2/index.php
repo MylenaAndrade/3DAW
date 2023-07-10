@@ -11,6 +11,7 @@
 <body>
 <h1 >Concurso KeyFalls</h1>
 	<a href="incluirCandidato.html">Inscrever Candidato</a>
+    <a href="incluirFiscal.html">Inscrever Fiscal</a>
     <table>
     	<tr>
           <td>Nome</td>
