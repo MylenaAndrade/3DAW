@@ -1,4 +1,15 @@
+<?php
 
+include_once('conexao.php');
+
+$query = "SELECT nome,cpf,identidade,email,cargo,sala, id FROM candidatos ORDER BY nome";
+
+$result = mysqli_query($mysqli,$query);
+	
+	if($result){
+		
+	
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,9 +31,32 @@
           <td>Email</td>
           <td>Cargo Pretendido</td>
         </tr>
+        <?php 
+            while($row = mysqli_fetch_array($result)){
+                    $nome = $row["nome"];
+                    $cpf = $row["cpf"];
+                    $identidade = $row["identidade"];
+                    $email = $row["email"];
+                    $cargo = $row["cargo"];
+                    $sala = $row["sala"];
+                    $id = $row["id"];
+        ?> 
         <tr>
-        <th></th>
+        <th><?php echo "$nome"?></th>
+        <th><?php echo "$cpf"?></th>
+        <th><?php echo "$identidade"?></th>
+        <th><?php echo "$email"?></th>
+        <th><?php echo "$cargo"?></th>
+        <th><?php echo "$sala"?></th>
+        <th>
+            <a href="alterarSala.php">Alterar Sala</a>
+            <a href="removerCandidato.php">Remover</a>
+        </th>
         </tr>
+        <?php
+            }
+        }
+            ?>       
     </table>
 
 
