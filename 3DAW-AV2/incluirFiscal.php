@@ -4,7 +4,7 @@ include("conexao.php");
         $nome = $_GET["nome"];
         $cpf = $_GET["cpf"];
         $sala = $_GET["sala"];
-
+        echo "$sala";
         $sql ="INSERT INTO fiscais values(default,'$nome','$cpf', '$sala')";
 
         if(mysqli_query($mysqli, $sql)){
