@@ -20,50 +20,61 @@ $result = mysqli_query($mysqli,$query);
     <title>Concurso KeyFalls</title>
 </head>
 <body>
-<h1 >Concurso KeyFalls</h1>
-	<a href="incluirCandidato.html">Inscrever Candidato</a>
-    <a href="incluirFiscal.html">Inscrever Fiscal</a>
+<h1 >CONCURSO KEYFALLS</h1>
+    <div class="inscrever">
+        <a href="incluirCandidato.html">Inscrever Candidato</a>
+        <a href="incluirFiscal.html">Inscrever Fiscal</a>
+    </div>
+    <br>
     <?php 
             while($row = mysqli_fetch_array($result)){
                 $sala = $row["sala"];
-                 echo "Sala $sala";
+                ?>
 
+                 <h2>Sala: <?php echo "$sala"?></h2>
+            <?php
                  $query = "SELECT nome FROM fiscais WHERE sala = '$sala' ORDER BY nome;";
 
                  $fiscais = mysqli_query($mysqli,$query);
              ?> 
-             <h2> Fiscais: </h2>
-                <?php  while($coluna = mysqli_fetch_array($fiscais)){
-                    $nome = $coluna["nome"];
+             <h3> Fiscais: </h3>
+                <?php  while($linha = mysqli_fetch_array($fiscais)){
+                    $nome = $linha["nome"];
                     echo"$nome "; }?>
-
+        <div class="tabela"> 
+        <table>
+    	<tr>
+          <td>Nome</td>
+          <td>CPF</td>
+          <td>Ação</td>
+        </tr>
         <?php 
                 $query = "SELECT id,nome,cpf FROM candidatos WHERE sala = '$sala' ORDER BY nome;";
 
                 $candidatos = mysqli_query($mysqli,$query);
-                while($coluna = mysqli_fetch_array($candidatos)){
-                    $nome = $coluna["nome"];
-                    $cpf = $coluna["cpf"];
-                    $id = $coluna["id"];?>
-    <table>
-    	<tr>
-          <td>Nome</td>
-          <td>CPF</td>
-        </tr>
+                while($linha = mysqli_fetch_array($candidatos)){
+                    $nome = $linha["nome"];
+                    $cpf = $linha["cpf"];
+                    $id = $linha["id"];?>
+                   
         <tr>
         <th><?php echo "$nome"?></th>
         <th><?php echo "$cpf"?></th>
         <th>
-            <a href="alterarSala.html?cpf=<?php echo $cpf?>">Alterar Sala</a>
-            <a href="removerCandidato.php?id=<?php echo $id?>">Remover</a>
+            <a href="alterarSala.html?cpf=<?php echo $cpf?>"><img src="img/lapis.png" alt="Alterar Sala"></a>
+            <a href="removerCandidato.php?id=<?php echo $id;?>"><img src="img/lixo.png" alt="Remover Candidato"></a>
         </th>
         </tr>
-        </table>
         <?php
-            }
+    }?>
+        </table>
+             
+        </div>
+        <?php
         }
     }
             ?>       
+
 
 
 </body>
