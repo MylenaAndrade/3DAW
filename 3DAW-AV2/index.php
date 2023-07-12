@@ -54,7 +54,7 @@ $result = mysqli_query($mysqli,$query);
         <th><?php echo "$nome"?></th>
         <th><?php echo "$cpf"?></th>
         <th>
-            <a href="alterarSala.php">Alterar Sala</a>
+            <a href="alterarSala.html?cpf=<?php echo $cpf?>">Alterar Sala</a>
             <a href="removerCandidato.php?id=<?php echo $id?>">Remover</a>
         </th>
         </tr>

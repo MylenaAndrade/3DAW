@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function alterarSala(){
+            let urlAtual = window.location.href;
+            let urlClass = new URL(urlAtual);
+            let cpf = urlClass.searchParams.get("cpf");
+            console.log(cpf);
+
+            let sala = document.getElementById("sala").value;
+
+            let xmlhttp = new XMLHttpRequest();
+            console.log("1");
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Chegou a resposta OK: " + this.responseText);
+                console.log("2");
+                document.getElementById("msg").innerHTML = this.responseText;
+            } else if (this.readyState < 4) {
+                console.log("3: " + this.readyState);
+            } else
+                console.log("Requisicao falhou: " + this.status);
+            }
+                console.log("4");
+                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV2/alterarSala.php?cpf=" + cpf + "&sala=" + sala);
+                xmlhttp.send();
+                console.log("enviei form");
+                console.log("5");
+        }
+    </script>
+    <title>Alterar Sala do Candidato</title>
+</head>
+<body class="inserir-aluno">
+<form method="POST">
+    <h1 class="inserir-aluno-titulo">Alterar Sala do Candidato</h1>
+    <label class="id" for="cpf" id="cpf">CPF: </label>
+    <script>
+        let urlAtual = window.location.href;
+        let urlClass = new URL(urlAtual);
+        let cpf = urlClass.searchParams.get("cpf");
+        console.log(cpf);
+
+        const identificao = document.createElement("p");
+
+        identificao.textContent = cpf; 
+
+        let p = document.getElementById("cpf");
+        p.insertAdjacentElement("beforeend", identificao);
+        
+    </script>
+    <br>
+    <label for="sala">Sala: </label>
+    <br>
+    <input type="text" name="sala" id="sala">
+    <br><br>
+    <a class="botao-voltar" href="index.php">Voltar</a>
+    <input class="botao-perguntas" type="submit" onclick="alterarSala();">
+    
+    </form>
+    <p id="msg"></p>
+    <script>
+        window.location.assign=("/3DAW/3DAW/3DAW-AV2/index.php");
+    </script>
+</body>
+</html>
