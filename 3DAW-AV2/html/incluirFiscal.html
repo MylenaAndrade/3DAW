@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <script>
         function incluirFiscal(){
             
@@ -31,19 +31,19 @@
                 console.log("Requisicao falhou: " + this.status);
             }
                 console.log("4");
-                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV2/incluirFiscal.php?nome=" + nome +  "&cpf=" + cpf + "&sala=" + sala);
+                xmlhttp.open("GET", "http://localhost/3DAW/3DAW/3DAW-AV2/php/incluirFiscal.php?nome=" + nome +  "&cpf=" + cpf + "&sala=" + sala);
                 xmlhttp.send();
                 console.log("enviei form");
                 console.log("5");
 
-                window.location.assign=("/3DAW/3DAW/3DAW-AV2/index.php");
+                window.location.assign=("/3DAW/3DAW/3DAW-AV2/php/index.php");
             }
 
     </script>
     <title>Concurso KeyFalls</title>
 </head>
 <body>
-    <form action="" method="POST" id="formPergunta">
+    <form action="" method="POST">
         <h1>Incluir Fiscal</h1>
         <label for="nome">Informe seu Nome:</label>
         <br>
@@ -57,7 +57,7 @@
         <br>
         <input type="text" name="sala" id="sala">
         <br>
-        <a class="botao-voltar" href="index.php">Voltar</a>
+        <a class="botao-voltar" href="../php/index.php">Voltar</a>
         <input class="botao-incluir" type="submit" onclick="incluirFiscal();">
     </form>
 

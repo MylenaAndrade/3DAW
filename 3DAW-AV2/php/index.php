@@ -19,14 +19,14 @@ $result = mysqli_query($mysqli,$query);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ysabeau+Infant:ital@1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Concurso KeyFalls</title>
 </head>
 <body>
 <h1 >CONCURSO KEYFALLS</h1>
     <div class="inscrever">
-        <a href="incluirCandidato.html">Inscrever Candidato</a>
-        <a href="incluirFiscal.html">Inscrever Fiscal</a>
+        <a href="../html/incluirCandidato.html">Inscrever Candidato</a>
+        <a href="../html/incluirFiscal.html">Inscrever Fiscal</a>
     </div>
     <br>
     <?php 
@@ -73,8 +73,8 @@ $result = mysqli_query($mysqli,$query);
         <th><?php echo "$email"?></th>
         <th><?php echo "$cargo"?></th>
         <th>
-            <a href="alterarSala.html?cpf=<?php echo $cpf?>"><img src="img/lapis.png" alt="Alterar Sala"></a>
-            <a href="removerCandidato.php?id=<?php echo $id;?>"><img src="img/lixo.png" alt="Remover Candidato"></a>
+            <a href="../html/alterarSala.html?cpf=<?php echo $cpf?>"><img src="../img/lapis.png" alt="Alterar Sala"></a>
+            <a href="removerCandidato.php?id=<?php echo $id;?>"><img src="../img/lixo.png" alt="Remover Candidato"></a>
         </th>
         </tr>
         <?php

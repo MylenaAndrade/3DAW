@@ -12,6 +12,7 @@ h1{
     margin-top: 20px;
 }
 table{
+    width: auto;
     font-size: 20px;
     border: 1px solid rgba(55, 55, 201, 0.808);
 }
@@ -23,6 +24,8 @@ tr{
 }
 
 .tabela{
+    display: grid;
+    place-items: center;
     width: 50%;
     padding: 15px;
     background-color: rgb(110, 184, 253);
@@ -31,13 +34,12 @@ tr{
 }
 
 img{
-    width: 25%;
+    width: 10%;
     height: auto;
 }
 
 th{
     padding: 5px;
-    width: 15%;
 }
 
 .inscrever{
